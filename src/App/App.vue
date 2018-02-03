@@ -67,7 +67,7 @@
         </v-container>
       </v-content>
     </v-app>
-    <v-app v-if="!configuration.length">
+    <v-app v-else>
       <v-container fluid fill-height>
         <v-layout row wrap align-center>
           <v-flex text-md-center>

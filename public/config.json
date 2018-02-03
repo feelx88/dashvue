@@ -4,11 +4,11 @@
       "title": "Home",
       "widgets": [
         [
-          { "type": "widget-switch", "props": { "text": "btn1", "title": "Btn1", "textOn": "Jupp", "textOff": "Nö!" } },
-          { "type": "widget-switch", "props": { "text": "btn2" } },
-          { "type": "widget-switch", "props": { "text": "btn3" } }
+          { "type": "widget-switch", "props": { "title": "btn1", "textOn": "Jupp", "textOff": "Nö!" } },
+          { "type": "widget-switch", "props": { "title": "btn2" } },
+          { "type": "widget-switch", "props": { "title": "btn3" } }
         ],
-        [{ "type": "widget-switch", "props": { "text": "btn1" } }]
+        [{ "type": "widget-switch", "props": { "title": "btn1" } }]
       ]
     },
     {
@@ -16,11 +16,11 @@
       "title": "Second",
       "widgets": [
         [
-          { "type": "widget-switch", "props": { "text": "#btn1" } }
+          { "type": "widget-switch", "props": { "title": "#btn1" } }
         ],
         [
-          { "type": "widget-switch", "props": { "text": "#btn1" } },
-          { "type": "widget-switch", "props": { "text": "##btn1" } }
+          { "type": "widget-switch", "props": { "title": "#btn1" } },
+          { "type": "widget-switch", "props": { "title": "##btn1" } }
         ]
       ]
     }
