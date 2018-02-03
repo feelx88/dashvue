@@ -1,0 +1,27 @@
+[
+    {
+      "icon": "home",
+      "title": "Home",
+      "widgets": [
+        [
+          { "type": "widget-switch", "props": { "text": "btn1", "title": "Btn1", "textOn": "Jupp", "textOff": "Nö!" } },
+          { "type": "widget-switch", "props": { "text": "btn2" } },
+          { "type": "widget-switch", "props": { "text": "btn3" } }
+        ],
+        [{ "type": "widget-switch", "props": { "text": "btn1" } }]
+      ]
+    },
+    {
+      "icon": "trending_up",
+      "title": "Second",
+      "widgets": [
+        [
+          { "type": "widget-switch", "props": { "text": "#btn1" } }
+        ],
+        [
+          { "type": "widget-switch", "props": { "text": "#btn1" } },
+          { "type": "widget-switch", "props": { "text": "##btn1" } }
+        ]
+      ]
+    }
+  ]
