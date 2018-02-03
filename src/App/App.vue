@@ -84,18 +84,18 @@
 <script lang="ts">
 
 import Vue from 'vue';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import Component from 'vue-class-component';
 
 @Component
 export default class App extends Vue {
   dark: boolean = true;
-  currentPage: any = null;
   menu: boolean = false;
-  configuration = [];
+  currentPage: any = null;
+  configuration: any = [];
 
-  created () {
-    axios.get('/public/config.json').then(response => {
+  created (): void {
+    axios.get('/public/config.json').then((response: AxiosResponse) => {
       this.configuration = response.data;
       this.currentPage = this.configuration[0];
     });

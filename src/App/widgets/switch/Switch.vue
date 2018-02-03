@@ -30,7 +30,7 @@ export default class Switch extends Vue {
         textOff: 'Off'
     }
 
-    created () {
+    created (): void {
         for (const key of Object.keys(this.defaults)) {
             this.$props.props[key] = this.$props.props[key] || this.defaults[key];
         }
