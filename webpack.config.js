@@ -4,7 +4,7 @@ var webpack = require('webpack')
 var resolve = (p) => path.resolve(__dirname, p)
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/main.ts',
   output: {
     path: resolve('./dist'),
     publicPath: '/dist/',
@@ -47,6 +47,10 @@ module.exports = {
       {
         test: /\.styl$/,
         loader: ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.ts$/,
+        loader: ['ts-loader']
       }
     ]
   },

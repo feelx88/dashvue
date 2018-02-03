@@ -57,44 +57,4 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      dark: true,
-      pages: [
-        {
-          icon: "home",
-          title: "Home",
-          widgets: [
-            [
-              { type: "widget-switch", props: { text: "btn1" } },
-              { type: "widget-switch", props: { text: "btn2" } },
-              { type: "widget-switch", props: { text: "btn3" } }
-            ],
-            [{ type: "widget-switch", props: { text: "btn1" } }]
-          ]
-        },
-        {
-          icon: "trending_up",
-          title: "Second",
-          widgets: [
-            [
-              { type: "widget-switch", props: { text: "#btn1" } }
-            ],
-            [
-              { type: "widget-switch", props: { text: "#btn1" } },
-              { type: "widget-switch", props: { text: "##btn1" } }
-            ]
-          ]
-        }
-      ],
-      currentPage: null,
-      menu: false
-    };
-  },
-  created: function() {
-    this.currentPage = this.pages[0];
-  }
-};
-</script>
+<script lang="ts" src="./App.ts"></script>

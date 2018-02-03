@@ -8,15 +8,4 @@
     </v-flex>
 </template>
 
-<script>
-export default {
-  data() {
-      return {
-          selected: false
-      }
-  },
-  props: [
-      'props'
-  ]
-}
-</script>
+<script lang="ts" src="./Switch.ts"></script>
