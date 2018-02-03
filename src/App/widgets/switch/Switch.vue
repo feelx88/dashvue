@@ -8,4 +8,16 @@
     </v-flex>
 </template>
 
-<script lang="ts" src="./Switch.ts"></script>
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+
+@Component({
+  props: [
+    'props'
+  ]
+})
+export default class Switch extends Vue {
+  selected: boolean = false;
+}
+</script>

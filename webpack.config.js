@@ -50,8 +50,14 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loader: ['ts-loader']
-      }
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/]
+          }
+        }
+      },
     ]
   },
   devServer: {
