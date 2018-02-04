@@ -8,7 +8,24 @@
       "widgets": [
         [
           { "type": "switch", "size": "1", "props": { "title": "btn1", "textOn": "Jupp", "textOff": "Nö!" } },
-          { "type": "switch", "props": { "title": "btn2" } },
+          { "type": "switch", "props": {
+              "title": "btn2",
+              "on": {
+                "type": "http",
+                "config": {
+                  "method": "GET",
+                  "url": "someurl"
+                }
+              },
+              "off": {
+                "type": "http",
+                "config": {
+                  "method": "GET",
+                  "url": "someurl"
+                }
+              }
+            } 
+          },
           { "type": "switch", "size": "3", "props": { "title": "btn3" } }
         ],
         [{ "type": "switch", "props": { "title": "btn1" } }]
