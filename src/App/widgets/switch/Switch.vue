@@ -19,7 +19,10 @@ import Component from 'vue-class-component';
 @Component({
     props: {
         props: Object,
-        size: String
+        size: {
+            type: String,
+            default: '1'
+        }
     }
 })
 export default class Switch extends Vue {
