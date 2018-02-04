@@ -1,5 +1,5 @@
 <template>
-  <v-flex md2>
+  <c-flex :size="size">
         <v-card>
             <v-card-title primary-title>
                 {{ props.title }}
@@ -8,7 +8,7 @@
                 <v-switch :label="value ? props.textOn : props.textOff" v-model="value"></v-switch>
             </v-card-text>
         </v-card>
-    </v-flex>
+    </c-flex>
 </template>
 
 <script lang="ts">
@@ -18,9 +18,8 @@ import Component from 'vue-class-component';
 
 @Component({
     props: {
-        props: {
-            type: Object
-        }
+        props: Object,
+        size: String
     }
 })
 export default class Switch extends Vue {

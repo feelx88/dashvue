@@ -61,6 +61,7 @@
               :key="`${currentPage.title}_${rowIndex}_${widgetIndex}`" 
               :is="widget.type" 
               :props="widget.props"
+              :size="widget.size"
               >
             </component>
           </v-layout>
