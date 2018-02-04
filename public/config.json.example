@@ -1,5 +1,6 @@
 {
   "menu": true,
+  "dark": true,
   "widgets": [
     {
       "icon": "home",
