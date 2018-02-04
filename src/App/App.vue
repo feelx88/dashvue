@@ -59,7 +59,7 @@
             <component 
               v-for="(widget, widgetIndex) in currentPage.widgets[rowIndex]" 
               :key="`${currentPage.title}_${rowIndex}_${widgetIndex}`" 
-              :is="widget.type" 
+              :is="`widget-${widget.type}`" 
               :props="widget.props"
               :size="widget.size"
               >
