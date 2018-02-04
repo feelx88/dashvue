@@ -1,4 +1,6 @@
-[
+{
+  "menu": true,
+  "widgets": [
     {
       "icon": "home",
       "title": "Home",
@@ -25,3 +27,4 @@
       ]
     }
   ]
+}

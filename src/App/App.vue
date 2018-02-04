@@ -97,7 +97,9 @@ export default class App extends Vue {
 
   created (): void {
     axios.get('/public/config.json').then((response: AxiosResponse) => {
-      this.configuration = response.data;
+      this.configuration = response.data.widgets;
+      this.menu = response.data.menu !== undefined ? response.data.menu : this.menu;
+      this.dark = response.data.dark !== undefined ? response.data.dark : this.dark;
       this.currentPage = this.configuration[0];
     });
   };
