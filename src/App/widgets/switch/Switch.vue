@@ -13,7 +13,6 @@
 
 import { Vue, Component, Watch } from 'vue-property-decorator';
 import Widget from '../Widget.vue';
-import Http from '../../datasources/outputs/Http.vue';
 import Output from '../../datasources/Output.vue';
 
 @Component
