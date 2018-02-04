@@ -10,13 +10,18 @@
 
 <script lang="ts">
 
-
 import { Vue, Component, Watch } from 'vue-property-decorator';
 import Widget from '../Widget.vue';
 import Output from '../../datasources/Output.vue';
 
 @Component
 export default class Switch extends Widget {
+
+    $refs: Vue['$refs'] & {
+        datasourceOn: Output,
+        datasourceOff: Output
+    };
+
     value: boolean = false;
     defaults(): any {
         return {
