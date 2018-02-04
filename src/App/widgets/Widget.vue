@@ -11,19 +11,13 @@
 
 <script lang="ts">
 
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
-@Component({
-    props: {
-        props: Object,
-        size: {
-            type: String,
-            default: '1'
-        }
-    }
-})
+@Component
 export default class Widget extends Vue {
+
+    @Prop() props: Object;
+    @Prop({ default: '1' }) size: String;
 
     defaults(): any {
         return {};

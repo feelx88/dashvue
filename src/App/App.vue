@@ -84,9 +84,8 @@
 
 <script lang="ts">
 
-import Vue from 'vue';
+import { Vue, Component } from 'vue-property-decorator';
 import axios, { AxiosResponse } from 'axios';
-import Component from 'vue-class-component';
 
 @Component
 export default class App extends Vue {

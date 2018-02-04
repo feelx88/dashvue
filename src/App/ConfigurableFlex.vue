@@ -19,15 +19,11 @@
 
 <script lang="ts">
 
-import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
-@Component({
-    props: {
-        size: String
-    }
-})
+@Component
 export default class ConfigurableFlex extends Vue {
+    @Prop({ default: '12' }) size: String;
 }
 
 </script>
