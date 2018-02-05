@@ -4,6 +4,7 @@
         <v-switch :label="value ? props.textOn : props.textOff" v-model="value"></v-switch>
         <component v-if="props.on" :is="`output-${props.on.type}`" ref="datasourceOn" :config="props.on.config"></component>
         <component v-if="props.off" :is="`output-${props.off.type}`" ref="datasourceOff" :config="props.off.config"></component>
+        <component v-if="props.status" :is="`input-${props.status.type}`" :config="props.status.config" @update="update"></component>
     </v-card-text>
   </widget>
 </template>
@@ -28,6 +29,10 @@ export default class Switch extends Widget {
             textOn: 'On',
             textOff: 'Off'
         }
+    }
+
+    update (data: any) {
+        this.value = data.status;
     }
 
     @Watch('value') _value(val: boolean) {

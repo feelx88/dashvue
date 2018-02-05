@@ -9,8 +9,10 @@ Vue.component('c-flex', ConfigurableFlex);
 
 import App from './App/App.vue';
 
-import Http from './App/datasources/outputs/Http.vue'
-Vue.component('output-http', Http);
+import HttpOutput from './App/datasources/outputs/Http.vue'
+Vue.component('output-http', HttpOutput);
+import HttpInput from './App/datasources/inputs/Http.vue'
+Vue.component('input-http', HttpInput);
 
 import Switch from "./App/widgets/switch/Switch.vue";
 Vue.component('widget-switch', Switch);
