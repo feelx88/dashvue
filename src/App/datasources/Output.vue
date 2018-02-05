@@ -1,5 +1,10 @@
 <script lang="ts">
-export default interface Output {
-    call (): void;
+
+import { Vue, Component } from 'vue-property-decorator';
+
+@Component
+export default class Output extends Vue {
+    call (): void {}
 }
+
 </script>
