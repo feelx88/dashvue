@@ -14,12 +14,15 @@ export default class Http extends Input {
 
     _interval: number;
 
+    _intervalFn () {
+        axios.request(this.config).then((response) => {
+            this.$emit('update', response.data);
+        });
+    }
+
     created (): void {
-        this._interval = setInterval(() => {
-            axios.request(this.config).then((response) => {
-                this.$emit('update', response.data);
-            });
-        }, this.config.interval);
+        this._intervalFn()
+        this._interval = setInterval(this._intervalFn, this.config.interval);
     }
 
     destroy () {
