@@ -18,6 +18,8 @@ import Switch from "./App/widgets/switch/Switch.vue";
 Vue.component('widget-switch', Switch);
 import Text from "./App/widgets/text/Text.vue";
 Vue.component('widget-text', Text);
+import MediaController from "./App/widgets/media-controller/MediaController.vue";
+Vue.component('widget-media-controller', MediaController);
 
 new Vue({
   el: '#app',
