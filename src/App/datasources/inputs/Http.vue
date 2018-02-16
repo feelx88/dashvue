@@ -10,13 +10,20 @@ import axios,{ AxiosRequestConfig } from 'axios';
 @Component
 export default class Http extends Input {
 
-    @Prop() config: { interval: number } & AxiosRequestConfig;
+    @Prop() config: AxiosRequestConfig & { 
+        interval: number, 
+        extract: string 
+    };
 
     _interval: number;
 
     _intervalFn () {
         axios.request(this.config).then((response) => {
-            this.$emit('update', response.data);
+            let data = response.data;
+            if (this.config.extract) {
+                data = eval(`response.data.${this.config.extract}`);
+            }
+            this.$emit('update', data);
         });
     }
 

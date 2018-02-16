@@ -32,7 +32,7 @@ export default class Switch extends Widget {
     }
 
     update (data: any) {
-        this.value = data.status;
+        this.value = data;
     }
 
     @Watch('value') _value(val: boolean) {
