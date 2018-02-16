@@ -17,7 +17,7 @@ export default class Http extends Input {
 
     _interval: number;
 
-    _intervalFn () {
+    call (): void {
         axios.request(this.config).then((response) => {
             let data = response.data;
             if (this.config.extract) {
@@ -28,8 +28,8 @@ export default class Http extends Input {
     }
 
     created (): void {
-        this._intervalFn()
-        this._interval = setInterval(this._intervalFn, this.config.interval);
+        this.call()
+        this._interval = setInterval(this.call, this.config.interval);
     }
 
     destroy () {
