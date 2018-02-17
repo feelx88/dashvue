@@ -84,24 +84,28 @@
 
 <script lang="ts">
 
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Watch } from 'vue-property-decorator';
 import axios, { AxiosResponse } from 'axios';
 
 @Component
 export default class App extends Vue {
   dark: boolean = true;
-  menu: boolean = false;
+  menu: boolean = this.$cookie.get('menu') == 'true' ? true : false;
   currentPage: any = null;
   configuration: any = [];
 
   created (): void {
     axios.get('/public/config.json').then((response: AxiosResponse) => {
       this.configuration = response.data.widgets;
-      this.menu = response.data.menu !== undefined ? response.data.menu : this.menu;
       this.dark = response.data.dark !== undefined ? response.data.dark : this.dark;
       this.currentPage = this.configuration[0];
     });
   };
+
+  @Watch('menu')
+  _menu(val: boolean) : void {
+    this.$cookie.set('menu', val);
+  }
 };
 
 </script>

@@ -4,6 +4,9 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 Vue.use(Vuetify);
 
+import VueCookie from 'vue-cookie';
+Vue.use(VueCookie);
+
 import ConfigurableFlex from "./App/ConfigurableFlex.vue";
 Vue.component('c-flex', ConfigurableFlex);
 
