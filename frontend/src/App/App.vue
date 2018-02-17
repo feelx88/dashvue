@@ -11,7 +11,7 @@
         <v-icon>{{ currentPage.icon }}</v-icon>
         <v-toolbar-title v-text="currentPage.title"></v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon>
+        <v-btn icon @click="logout">
           <v-icon>exit_to_app</v-icon>
         </v-btn>
       </v-toolbar>
@@ -111,6 +111,11 @@ export default class App extends Vue {
 
   login (loggedIn: boolean): void {
     this.loggedIn = loggedIn;
+  }
+
+  logout (): void {
+    this.$cookie.set('token', '');
+    this.loggedIn = false;
   }
 
   @Watch('menu')
