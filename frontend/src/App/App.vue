@@ -102,20 +102,27 @@ export default class App extends Vue {
     this.loggedIn = (this.$cookie.get('token') !== null && this.$cookie.get('token') !== '');
     axios.defaults.headers.Authorization = this.$cookie.get('token');
 
-    axios.get('/public/config.json').then((response: AxiosResponse) => {
-      this.configuration = response.data.widgets;
-      this.dark = response.data.dark !== undefined ? response.data.dark : this.dark;
-      this.currentPage = this.configuration[0];
-    });
+    if (this.loggedIn) {
+      this.loadConfig();
+    }
   };
 
   login (loggedIn: boolean): void {
     this.loggedIn = loggedIn;
+    this.loadConfig();
   }
 
   logout (): void {
     this.$cookie.set('token', '');
     this.loggedIn = false;
+  }
+
+  loadConfig (): void {
+    axios.get('/api/config').then((response: AxiosResponse) => {
+      this.configuration = response.data.widgets;
+      this.dark = response.data.dark !== undefined ? response.data.dark : this.dark;
+      this.currentPage = this.configuration[0];
+    });
   }
 
   @Watch('menu')
