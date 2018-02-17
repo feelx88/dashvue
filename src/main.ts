@@ -9,6 +9,8 @@ Vue.use(VueCookie);
 
 import ConfigurableFlex from "./App/ConfigurableFlex.vue";
 Vue.component('c-flex', ConfigurableFlex);
+import Login from './App/Login.vue';
+Vue.component('login', Login);
 
 import App from './App/App.vue';
 
