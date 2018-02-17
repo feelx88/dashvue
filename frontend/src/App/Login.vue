@@ -31,7 +31,7 @@ export default class Login extends Vue {
 
     _login(): void {
         this.loading = true;
-        axios.post('/login', {
+        axios.post('/api/login', {
             username: this.username,
             password: this.password
         }).then((response) => {
