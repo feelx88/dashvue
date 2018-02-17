@@ -48,7 +48,6 @@ export default class MediaController extends Widget {
     call(datasourceName: string) {
         (this.$refs['datasource' + datasourceName] as Output).call();
         this.$refs.datasourceStatus.call();
-
     }
 
     update(data: any): void {
