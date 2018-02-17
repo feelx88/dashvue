@@ -19,6 +19,8 @@ Vue.component('output-http', HttpOutput);
 import HttpInput from './App/datasources/inputs/Http.vue'
 Vue.component('input-http', HttpInput);
 
+import Widget from './App/widgets/Widget.vue';
+Vue.component('widget', Widget);
 import Switch from "./App/widgets/switch/Switch.vue";
 Vue.component('widget-switch', Switch);
 import Text from "./App/widgets/text/Text.vue";
