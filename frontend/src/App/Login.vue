@@ -6,7 +6,7 @@
                 <v-card-title>Login</v-card-title>
                 <v-card-text>
                     <v-text-field v-model="username" label="Username" append-icon="person"></v-text-field>
-                    <v-text-field type="password" v-model="password" label="Password" append-icon="lock" @keyup.enter="login"></v-text-field>
+                    <v-text-field type="password" v-model="password" label="Password" append-icon="lock" @keyup.enter="_login"></v-text-field>
                 </v-card-text>
                 <v-card-actions>
                     <v-btn :loading="loading" flat color="primary" @click="_login">Ok</v-btn>
