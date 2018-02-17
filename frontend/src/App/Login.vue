@@ -36,8 +36,8 @@ export default class Login extends Vue {
             password: this.password
         }).then((response) => {
             this.loading = false;
-            axios.defaults.headers.Authorization = response.data.token;
-            this.$cookie.set('token', response.data.token);
+            axios.defaults.headers.Authorization = 'Bearer ' + response.data.token;
+            this.$cookie.set('token', 'Bearer ' + response.data.token);
             this.$emit('login', response.data.success);
         }).catch(() => {
             this.loading = false;
