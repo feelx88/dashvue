@@ -18,39 +18,39 @@
 </template>
 
 <script lang="ts">
-
-import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
-import axios from 'axios';
+import { Vue, Component, Prop, Emit } from "vue-property-decorator";
+import axios from "axios";
 
 @Component
 export default class Login extends Vue {
+  username: string = "";
+  password: string = "";
+  loading: boolean = false;
 
-    username: string = '';
-    password: string = '';
-    loading: boolean = false;
+  _login(): void {
+    this.loading = true;
+    axios
+      .post("/api/login", {
+        username: this.username,
+        password: this.password
+      })
+      .then(response => {
+        this.loading = false;
+        axios.defaults.headers.Authorization = "Bearer " + response.data.token;
+        this.$cookie.set("token", "Bearer " + response.data.token);
+        this.$emit("login", response.data.success);
+      })
+      .catch(() => {
+        this.loading = false;
+        axios.defaults.headers.Authorization = "";
+        this.$cookie.set("token", "");
+        this.$emit("login", false);
+      });
+  }
 
-    _login(): void {
-        this.loading = true;
-        axios.post('/api/login', {
-            username: this.username,
-            password: this.password
-        }).then((response) => {
-            this.loading = false;
-            axios.defaults.headers.Authorization = 'Bearer ' + response.data.token;
-            this.$cookie.set('token', 'Bearer ' + response.data.token);
-            this.$emit('login', response.data.success);
-        }).catch(() => {
-            this.loading = false;
-            axios.defaults.headers.Authorization = '';
-            this.$cookie.set('token', '');
-            this.$emit('login', false);
-        });
-    }
-
-    @Emit()
-    login(loggedIn: boolean): boolean {
-        return loggedIn;
-    }
+  @Emit()
+  login(loggedIn: boolean): boolean {
+    return loggedIn;
+  }
 }
-
 </script>

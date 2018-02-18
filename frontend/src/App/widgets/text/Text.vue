@@ -10,18 +10,15 @@
 </template>
 
 <script lang="ts">
-
-
-import { Vue, Component } from 'vue-property-decorator';
-import Widget from '../Widget.vue';
+import { Vue, Component } from "vue-property-decorator";
+import Widget from "../Widget.vue";
 
 @Component
 export default class Text extends Widget {
-    text: string = '';
+  text: string = "";
 
-    update(data: string): void {
-        this.text = data;
-    }
+  update(data: string): void {
+    this.text = data;
+  }
 }
-
 </script>

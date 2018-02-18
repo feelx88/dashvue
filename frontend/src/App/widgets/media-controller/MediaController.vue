@@ -26,7 +26,6 @@
 </template>
 
 <script lang="ts">
-
 import { Component, Vue } from "vue-property-decorator";
 import Widget from "../Widget.vue";
 import Output from "../../datasources/Output.vue";
@@ -34,24 +33,23 @@ import Input from "../../datasources/Input.vue";
 
 @Component
 export default class MediaController extends Widget {
+  $refs: Vue["$refs"] & {
+    datasourcePrev: Output;
+    datasourcePlay: Output;
+    datasourceStop: Output;
+    datasourceNext: Output;
+    datasourceStatus: Input;
+  };
 
-    $refs: Vue['$refs'] & {
-        datasourcePrev: Output,
-        datasourcePlay: Output,
-        datasourceStop: Output,
-        datasourceNext: Output,
-        datasourceStatus: Input
-    };
+  nowPlaying: String | null = null;
 
-    nowPlaying: String | null = null;
+  call(datasourceName: string) {
+    (this.$refs["datasource" + datasourceName] as Output).call();
+    this.$refs.datasourceStatus.call();
+  }
 
-    call(datasourceName: string) {
-        (this.$refs['datasource' + datasourceName] as Output).call();
-        this.$refs.datasourceStatus.call();
-    }
-
-    update(data: any): void {
-        this.nowPlaying = data;
-    }
+  update(data: any): void {
+    this.nowPlaying = data;
+  }
 }
 </script>

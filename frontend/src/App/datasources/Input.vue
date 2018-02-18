@@ -1,14 +1,11 @@
 <script lang="ts">
-
-import { Vue, Component, Emit } from 'vue-property-decorator';
+import { Vue, Component, Emit } from "vue-property-decorator";
 
 @Component
 export default class Input extends Vue {
+  call(): void {}
 
-    call(): void {}
-
-    @Emit()
-    update (data: any): void {}
+  @Emit()
+  update(data: any): void {}
 }
-
 </script>

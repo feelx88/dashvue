@@ -86,49 +86,49 @@
 </template>
 
 <script lang="ts">
-
-import { Vue, Component, Watch } from 'vue-property-decorator';
-import axios, { AxiosResponse } from 'axios';
+import { Vue, Component, Watch } from "vue-property-decorator";
+import axios, { AxiosResponse } from "axios";
 
 @Component
 export default class App extends Vue {
   dark: boolean = true;
-  menu: boolean = this.$cookie.get('menu') == 'true' ? true : false;
+  menu: boolean = this.$cookie.get("menu") == "true" ? true : false;
   currentPage: any = null;
   configuration: any = [];
   loggedIn: boolean = false;
 
-  created (): void {
-    this.loggedIn = (this.$cookie.get('token') !== null && this.$cookie.get('token') !== '');
-    axios.defaults.headers.Authorization = this.$cookie.get('token');
+  created(): void {
+    this.loggedIn =
+      this.$cookie.get("token") !== null && this.$cookie.get("token") !== "";
+    axios.defaults.headers.Authorization = this.$cookie.get("token");
 
     if (this.loggedIn) {
       this.loadConfig();
     }
-  };
+  }
 
-  login (loggedIn: boolean): void {
+  login(loggedIn: boolean): void {
     this.loggedIn = loggedIn;
     this.loadConfig();
   }
 
-  logout (): void {
-    this.$cookie.set('token', '');
+  logout(): void {
+    this.$cookie.set("token", "");
     this.loggedIn = false;
   }
 
-  loadConfig (): void {
-    axios.get('/api/config').then((response: AxiosResponse) => {
+  loadConfig(): void {
+    axios.get("/api/config").then((response: AxiosResponse) => {
       this.configuration = response.data.widgets;
-      this.dark = response.data.dark !== undefined ? response.data.dark : this.dark;
+      this.dark =
+        response.data.dark !== undefined ? response.data.dark : this.dark;
       this.currentPage = this.configuration[0];
     });
   }
 
-  @Watch('menu')
-  _menu(val: boolean) : void {
-    this.$cookie.set('menu', val);
+  @Watch("menu")
+  _menu(val: boolean): void {
+    this.$cookie.set("menu", val);
   }
-};
-
+}
 </script>

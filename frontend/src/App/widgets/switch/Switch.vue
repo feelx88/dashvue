@@ -10,38 +10,36 @@
 </template>
 
 <script lang="ts">
-
-import { Vue, Component, Watch } from 'vue-property-decorator';
-import Widget from '../Widget.vue';
-import Output from '../../datasources/Output.vue';
+import { Vue, Component, Watch } from "vue-property-decorator";
+import Widget from "../Widget.vue";
+import Output from "../../datasources/Output.vue";
 
 @Component
 export default class Switch extends Widget {
+  $refs: Vue["$refs"] & {
+    datasourceOn: Output;
+    datasourceOff: Output;
+  };
 
-    $refs: Vue['$refs'] & {
-        datasourceOn: Output,
-        datasourceOff: Output
+  value: boolean = false;
+  defaults(): any {
+    return {
+      textOn: "On",
+      textOff: "Off"
     };
+  }
 
-    value: boolean = false;
-    defaults(): any {
-        return {
-            textOn: 'On',
-            textOff: 'Off'
-        }
-    }
+  update(data: any) {
+    this.value = data;
+  }
 
-    update (data: any) {
-        this.value = data;
+  @Watch("value")
+  _value(val: boolean) {
+    if (val && this.$refs.datasourceOn) {
+      this.$refs.datasourceOn.call();
+    } else if (this.$refs.datasourceOff) {
+      this.$refs.datasourceOff.call();
     }
-
-    @Watch('value') _value(val: boolean) {
-        if (val && this.$refs.datasourceOn) {
-            this.$refs.datasourceOn.call();
-        } else if (this.$refs.datasourceOff) {
-            this.$refs.datasourceOff.call();
-        }
-    }
+  }
 }
-
 </script>
