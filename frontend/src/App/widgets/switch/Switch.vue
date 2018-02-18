@@ -1,12 +1,12 @@
 <template>
-  <widget :props="props" :size="size">
-    <v-card-actions>
-        <v-switch :label="value ? props.textOn : props.textOff" v-model="value"></v-switch>
-    </v-card-actions>
-    <component v-if="props.on" :is="`output-${props.on.type}`" ref="datasourceOn" :config="props.on.config"></component>
-    <component v-if="props.off" :is="`output-${props.off.type}`" ref="datasourceOff" :config="props.off.config"></component>
-    <component v-if="props.status" :is="`input-${props.status.type}`" :config="props.status.config" @update="update"></component>
-  </widget>
+    <widget :props="props" :size="size">
+        <v-card-actions>
+            <v-switch :label="value ? props.textOn : props.textOff" v-model="value"></v-switch>
+        </v-card-actions>
+        <component v-if="props.on" :is="`output-${props.on.type}`" ref="datasourceOn" :config="props.on.config"></component>
+        <component v-if="props.off" :is="`output-${props.off.type}`" ref="datasourceOff" :config="props.off.config"></component>
+        <component v-if="props.status" :is="`input-${props.status.type}`" :config="props.status.config" @update="update"></component>
+    </widget>
 </template>
 
 <script lang="ts">

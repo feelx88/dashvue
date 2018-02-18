@@ -1,12 +1,12 @@
 <template>
-  <c-flex :size="size">
-      <v-card>
-        <v-card-title v-if="props.title">
-            {{ props.title }}
-        </v-card-title>
-        <slot></slot>
-      </v-card>
-  </c-flex>
+    <c-flex :size="size">
+        <v-card>
+            <v-card-title v-if="props.title">
+                {{ props.title }}
+            </v-card-title>
+            <slot></slot>
+        </v-card>
+    </c-flex>
 </template>
 
 <script lang="ts">
