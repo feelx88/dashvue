@@ -32,7 +32,7 @@ export default class Http extends Input {
         this._interval = setInterval(this.call, this.config.interval);
     }
 
-    destroy () {
+    destroyed () {
         clearInterval(this._interval);
     }
 }
