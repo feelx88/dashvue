@@ -1,6 +1,6 @@
 <template>
   <main>
-    <v-app :dark="dark" v-if="configuration.length">
+    <v-app :dark="dark" v-if="configuration.length && loggedIn">
       <v-toolbar app>
         <v-btn 
           icon
@@ -11,7 +11,7 @@
         <v-icon>{{ currentPage.icon }}</v-icon>
         <v-toolbar-title v-text="currentPage.title"></v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn icon>
+        <v-btn icon @click="logout">
           <v-icon>exit_to_app</v-icon>
         </v-btn>
       </v-toolbar>
@@ -68,7 +68,7 @@
         </v-container>
       </v-content>
     </v-app>
-    <v-app v-else>
+    <v-app :dark="dark" v-else-if="loggedIn">
       <v-container fluid fill-height>
         <v-layout row wrap align-center>
           <v-flex text-md-center>
@@ -78,6 +78,9 @@
           </v-flex>
         </v-layout>
       </v-container>
+    </v-app>
+    <v-app :dark="dark" v-else>
+      <login @login="login"></login>
     </v-app>
   </main>
 </template>
@@ -93,14 +96,34 @@ export default class App extends Vue {
   menu: boolean = this.$cookie.get('menu') == 'true' ? true : false;
   currentPage: any = null;
   configuration: any = [];
+  loggedIn: boolean = false;
 
   created (): void {
-    axios.get('/public/config.json').then((response: AxiosResponse) => {
+    this.loggedIn = (this.$cookie.get('token') !== null && this.$cookie.get('token') !== '');
+    axios.defaults.headers.Authorization = this.$cookie.get('token');
+
+    if (this.loggedIn) {
+      this.loadConfig();
+    }
+  };
+
+  login (loggedIn: boolean): void {
+    this.loggedIn = loggedIn;
+    this.loadConfig();
+  }
+
+  logout (): void {
+    this.$cookie.set('token', '');
+    this.loggedIn = false;
+  }
+
+  loadConfig (): void {
+    axios.get('/api/config').then((response: AxiosResponse) => {
       this.configuration = response.data.widgets;
       this.dark = response.data.dark !== undefined ? response.data.dark : this.dark;
       this.currentPage = this.configuration[0];
     });
-  };
+  }
 
   @Watch('menu')
   _menu(val: boolean) : void {
