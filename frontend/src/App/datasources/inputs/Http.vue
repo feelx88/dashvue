@@ -21,7 +21,7 @@ export default class Http extends Input {
         axios.request(this.config).then((response) => {
             let data = response.data;
             if (this.config.extract) {
-                data = eval(`response.data.${this.config.extract}`);
+                data = eval(`response.data${this.config.extract}`);
             }
             this.$emit('update', data);
         });
