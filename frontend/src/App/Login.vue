@@ -37,7 +37,7 @@ export default class Login extends Vue {
       .then(response => {
         this.loading = false;
         axios.defaults.headers.Authorization = "Bearer " + response.data.token;
-        this.$cookie.set("token", "Bearer " + response.data.token);
+        this.$cookie.set("token", "Bearer " + response.data.token, { expires: '1Y' });
         this.$emit("login", response.data.success);
       })
       .catch(() => {
