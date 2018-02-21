@@ -23,6 +23,8 @@ import Page from "./App/pages/Page.vue";
 Vue.component("page", Page);
 import WidgetPage from "./App/pages/WidgetPage/WidgetPage.vue";
 Vue.component("page-widgets", WidgetPage);
+import EmbedPage from "./App/pages/EmbedPage/EmbedPage.vue";
+Vue.component("page-embed", EmbedPage);
 
 import Widget from "./App/widgets/Widget.vue";
 Vue.component("widget", Widget);
