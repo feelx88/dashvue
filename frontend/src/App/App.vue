@@ -35,12 +35,7 @@
                 </v-list>
             </v-navigation-drawer>
             <v-content>
-                <v-container grid-list-md>
-                    <v-layout row wrap v-for="(row, rowIndex) in currentPage.widgets" :key="rowIndex">
-                        <component v-for="(widget, widgetIndex) in currentPage.widgets[rowIndex]" :key="`${currentPage.title}_${rowIndex}_${widgetIndex}`" :is="`widget-${widget.type}`" :props="widget.props" :size="widget.size">
-                        </component>
-                    </v-layout>
-                </v-container>
+                <component v-if="currentPage" :is="`page-${currentPage.type}`" :props="currentPage"></component>
             </v-content>
         </v-app>
         <v-app :dark="dark" v-else-if="loggedIn">
@@ -93,7 +88,7 @@ export default class App extends Vue {
 
   loadConfig(): void {
     axios.get("/api/config").then((response: AxiosResponse) => {
-      this.configuration = response.data.widgets;
+      this.configuration = response.data.pages;
       this.dark =
         response.data.dark !== undefined ? response.data.dark : this.dark;
       this.currentPage = this.configuration[0];
