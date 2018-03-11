@@ -15,9 +15,11 @@ export default class MqttInput extends Input {
     topic: string;
   };
 
+  private client: Client;
+
   created(): void {
-    const client: Client = connect(this.config.url);
-    client.on("message", (topic: string, message: Uint8Array) => {
+    this.client = connect(this.config.url);
+    this.client.on("message", (topic: string, message: Uint8Array) => {
       let data = JSON.parse(message.toString());
       if (this.config.extract) {
         data = eval(`data${this.config.extract}`);
@@ -26,7 +28,7 @@ export default class MqttInput extends Input {
       this.update(data);
     });
 
-    client.subscribe(this.config.topic);
+    this.client.subscribe(this.config.topic);
   }
   call(): void {}
 
