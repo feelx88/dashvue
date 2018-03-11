@@ -5,15 +5,14 @@
   "author": "Felix Müller <feelx88@googlemail.com>",
   "private": true,
   "scripts": {
-    "dev":
-      "cross-env NODE_ENV=development webpack-dev-server --inline --hot --host=0.0.0.0",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --host=0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "dev-build":
-      "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "dev-build": "cross-env NODE_ENV=development webpack --progress --hide-modules",
     "watch": "cross-env NODE_ENV=development webpack --watch --hide-modules"
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "mqtt": "^2.15.3",
     "vue": "^2.5.3",
     "vue-class-component": "^6.1.2",
     "vue-cookie": "^1.1.4",
@@ -21,6 +20,7 @@
     "vuetify": "^0.17.4"
   },
   "devDependencies": {
+    "@types/mqtt": "^2.5.0",
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-preset-env": "^1.6.0",

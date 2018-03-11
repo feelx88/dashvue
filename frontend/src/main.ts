@@ -18,6 +18,8 @@ import HttpOutput from "./App/datasources/outputs/Http.vue";
 Vue.component("output-http", HttpOutput);
 import HttpInput from "./App/datasources/inputs/Http.vue";
 Vue.component("input-http", HttpInput);
+import MqttInput from "./App/datasources/inputs/Mqtt.vue";
+Vue.component("input-mqtt", MqttInput);
 
 import Page from "./App/pages/Page.vue";
 Vue.component("page", Page);
