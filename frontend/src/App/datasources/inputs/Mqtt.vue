@@ -4,7 +4,7 @@
 <script lang="ts">
 import { Component, Emit, Prop } from "vue-property-decorator";
 import Input from "../Input.vue";
-import { Client, connect } from "mqtt";
+import { Client } from "mqtt";
 import Mqtt from "../Mqtt.ts";
 
 @Component
@@ -19,13 +19,7 @@ export default class MqttInput extends Input {
   private client: Client;
 
   created(): void {
-    let client = Mqtt.clients[this.config.url];
-    if (!client) {
-      client = connect(this.config.url);
-      Mqtt.clients[this.config.url] = client;
-    }
-
-    this.client = client;
+    this.client = Mqtt.getClient(this.config.url);
 
     this.client.on("message", (topic: string, message: Uint8Array) => {
       let data = JSON.parse(message.toString());
