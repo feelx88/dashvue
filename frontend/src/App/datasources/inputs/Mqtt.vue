@@ -22,6 +22,10 @@ export default class MqttInput extends Input {
     this.client = Mqtt.getClient(this.config.url);
 
     this.client.on("message", (topic: string, message: Uint8Array) => {
+      if (topic !== this.config.topic) {
+        return;
+      }
+
       let data = JSON.parse(message.toString());
       if (this.config.extract) {
         data = eval(`data${this.config.extract}`);
