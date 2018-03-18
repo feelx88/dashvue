@@ -16,6 +16,8 @@ import App from "./App/App.vue";
 
 import HttpOutput from "./App/datasources/outputs/Http.vue";
 Vue.component("output-http", HttpOutput);
+import MqttOutput from "./App/datasources/outputs/Mqtt.vue";
+Vue.component("output-mqtt", MqttOutput);
 import HttpInput from "./App/datasources/inputs/Http.vue";
 Vue.component("input-http", HttpInput);
 import MqttInput from "./App/datasources/inputs/Mqtt.vue";
