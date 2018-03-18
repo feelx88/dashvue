@@ -26,12 +26,7 @@ export default class MqttInput extends Input {
         return;
       }
 
-      let data = JSON.parse(message.toString());
-      if (this.config.extract) {
-        data = eval(`data${this.config.extract}`);
-      }
-
-      this.update(data);
+      this.update(this.getData(message.toString()));
     });
 
     this.client.subscribe(this.config.topic);
