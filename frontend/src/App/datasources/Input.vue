@@ -3,11 +3,7 @@ import { Vue, Component, Emit, Prop } from "vue-property-decorator";
 
 @Component
 export default class Input extends Vue {
-  @Prop()
-  config: {
-    json: bool;
-    extract: string;
-  };
+  @Prop() config: any;
 
   call(): void {}
 
