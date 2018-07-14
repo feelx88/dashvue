@@ -38,6 +38,8 @@ import Text from "./App/widgets/text/Text.vue";
 Vue.component("widget-text", Text);
 import MediaController from "./App/widgets/media-controller/MediaController.vue";
 Vue.component("widget-media-controller", MediaController);
+import Chart from "./App/widgets/chart/Chart.vue";
+Vue.component("widget-chart", Chart);
 
 new Vue({
   el: "#app",
