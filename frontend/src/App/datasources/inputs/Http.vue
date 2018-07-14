@@ -11,6 +11,7 @@ export default class Http extends Input {
   @Prop()
   config: AxiosRequestConfig & {
     interval: number;
+    extract: string;
   };
 
   _interval: number;
