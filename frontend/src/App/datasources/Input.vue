@@ -13,7 +13,7 @@ export default class Input extends Vue {
     }
 
     if (this.config.extract) {
-      data = eval(`data${this.config.extract}`);
+      data = eval(`${this.config.extract}`);
     }
 
     return data;
