@@ -16,6 +16,7 @@ export default class Input extends Vue {
       let extractor = this.config.extract;
 
       if (this.config.extract instanceof Object) {
+        extractor = JSON.parse(JSON.stringify(extractor));
         this.evalObject(extractor, data);
         data = extractor;
       } else {
