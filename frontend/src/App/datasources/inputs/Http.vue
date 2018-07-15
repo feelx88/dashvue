@@ -11,13 +11,18 @@ export default class Http extends Input {
   @Prop()
   config: AxiosRequestConfig & {
     interval: number;
+    extract: string;
   };
 
   _interval: number;
 
   call(): void {
-    axios.request<string>(this.config).then(response => {
-      this.$emit("update", this.getData(response.data));
+    axios.request(this.config).then(response => {
+      let data = response.data;
+      if (this.config.extract) {
+        data = eval(this.config.extract);
+      }
+      this.$emit("update", data);
     });
   }
 
