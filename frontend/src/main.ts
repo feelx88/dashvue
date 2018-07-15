@@ -7,6 +7,9 @@ Vue.use(Vuetify);
 import VueCookie from "vue-cookie";
 Vue.use(VueCookie);
 
+import VueMoment from "vue-moment";
+Vue.use(VueMoment);
+
 import ConfigurableFlex from "./App/ConfigurableFlex.vue";
 Vue.component("c-flex", ConfigurableFlex);
 import Login from "./App/Login.vue";

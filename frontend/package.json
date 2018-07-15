@@ -12,11 +12,12 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "mqtt": "^2.15.3",
     "chart.js": "^2.7.2",
+    "mqtt": "^2.15.3",
     "vue": "^2.5.3",
     "vue-class-component": "^6.1.2",
     "vue-cookie": "^1.1.4",
+    "vue-moment": "^4.0.0",
     "vue-property-decorator": "^6.0.0",
     "vuetify": "^0.17.4"
   },
