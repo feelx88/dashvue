@@ -50,18 +50,15 @@ export default class Chart extends Widget {
           }
         ],
         options: {
-          maintainAspectRatio: false,
-          legend: {
-            display: false
-          }
+          maintainAspectRatio: false
         }
       });
     }
 
     if (this.data) {
       this.chart.data.labels = this.data.labels;
-      this.chart.data.datasets = [{}];
-      this.chart.data.datasets[0].data = this.data.data;
+      this.chart.data.datasets = this.data.data;
+      this.chart.options = { ...this.chart.options, ...this.data.options };
       this.chart.update();
     }
   }
