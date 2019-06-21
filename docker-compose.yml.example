@@ -1,0 +1,9 @@
+version: "3"
+services:
+  node:
+    image: arm32v7/node:slim
+    expose:
+      - 80
+    volumes:
+      - "./:/app"
+    command: bash -c 'cd /app/backend; node index.js'
