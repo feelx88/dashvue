@@ -11,7 +11,7 @@
     "watch": "cross-env NODE_ENV=development webpack --watch --hide-modules"
   },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "chart.js": "^2.7.2",
     "mqtt": "^2.15.3",
     "vue": "^2.5.3",
